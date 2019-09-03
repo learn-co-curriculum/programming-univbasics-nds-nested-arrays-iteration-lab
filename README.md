@@ -8,9 +8,11 @@
 
 ## Introduction
 
-When we started this module we mentioned that one of the core uses of nested
-data structures are doing data processing on them. We're going to pick out three
-specific types of processing here:
+When we started this module, we mentioned that we often use nested data
+structures as a "base" from which to do data processing. Arrays of arrays is
+our first milestone in learning to work with nested data.
+
+We're going to pick out three specific types of processing here:
 
 * Displaying the nested structure
 * Transforming the nested structure into a new structure
@@ -27,11 +29,10 @@ can see how it might be adapted to your particular need. Some people call these
 It's not often we say this, but this following bit of code is worth memorizing.
 If you want to learn to speak any human language, it's a good idea to learn the
 grammar, grow your vocabulary and speak with native speakers as much as
-possible.
-
-But that takes years, and, in a pinch, you should _really know_ how to ask for
-food, water, and a bathroom. Even if you don't understand what you're saying,
-knowing what sounds to make to get food, water, or a bathroom is very handy.
+possible.  **But** that takes years, and, in a pinch, you should _really know_
+how to ask for food, water, and a bathroom. Even if you don't understand what's
+happening grammatically, having a few "stock phrases" to lean on is helpful.
+The following code is a good "stock phrase."
 
 Assuming the following AoA:
 
@@ -112,9 +113,8 @@ end
 results #=> => ["Posh", "Paprika", "Parsley"]
 ```
 
-This pattern is known as "mapping" because you're taking an input value and
-transforming it into a new value. As you learn Ruby's `Enumerable` methods in
-just a little while, remembering this little fact will help a lot!
+We might call this _filtering_. When you learn Ruby's `Enumerable` methods in
+just a little while, remembering this name will help a lot!
 
 ## Traverse `Array` of `Array`s to Produce a Single Value
 
@@ -143,9 +143,9 @@ end
 total #=> 297
 ```
 
-This pattern is known as "reduction" because you're going to _reduce_ a nested
+This pattern is known as _reduction_ because you're going to _reduce_ a nested
 data structure to a single value. As you learn Ruby's `Enumerable` methods,
-remembering this little fact will help a lot!
+remembering this name will help a lot!
 
 ## Conclusion
 
@@ -153,13 +153,15 @@ Congratulations. You've learned three important data processing tasks with
 matrices and Ruby:
 
 * Print every element in the grid
-* Gather some of the elements (or some that match a given criterion) to a new `Array`
+* Gather some of the elements that match a given criterion to a new `Array`
 * Gather all the elements to create a single value
 
 In the lab, we're going to ask you to adapt these "reference implementations"
 to do some drills. It's awesome to know that you don't need anything more
 complex than while loops and assignments to process complex structures into
-_insight_! These drills are designed to help you have the tools you're going to
-need to work with complex, nested `Array`s of `Array`s. Building these skills
-means that when you encounter "`Array`s of `Hash`es of `Array`s of `Array`s,"
-you'll have trained to meet that challenge.
+_insight_!
+
+These drills are designed to help you have the tools you're going to need to
+work with complex, nested `Array`s of `Array`s. Building these skills means
+that when you encounter "`Array`s of `Hash`es of `Array`s of `Array`s," you'll
+have trained to meet that challenge.
