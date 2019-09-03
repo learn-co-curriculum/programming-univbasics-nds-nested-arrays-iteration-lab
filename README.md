@@ -165,3 +165,7 @@ These drills are designed to help you have the tools you're going to need to
 work with complex, nested `Array`s of `Array`s. Building these skills means
 that when you encounter "`Array`s of `Hash`es of `Array`s of `Array`s," you'll
 have trained to meet that challenge.
+
+Keep in mind, you might need to mix-and-match: you might _filter_ some inner
+`Array`s; and, of the ones that passed, you might average their numbers and
+accumulate those numbers to a new Array or a new total.
