@@ -9,14 +9,14 @@
 ## Introduction
 
 When we started this module, we mentioned that we often use nested data
-structures as a "base" from which to do data processing. Arrays of arrays is
-our first milestone in learning to work with nested data.
+structures as a "base" from which to do data processing. `Array`s of `Array`s
+is our first milestone in learning to work with nested data.
 
 We're going to pick out three specific types of processing here:
 
-* Displaying the nested structure
-* Transforming the nested structure into a new structure
-* Transforming the nested structure into a result
+1. Displaying the nested structure
+1. Transforming the nested structure into a new structure (a collection)
+1. Transforming the nested structure into a result (a single thing usually a number)
 
 In each of these sections, we're going to give you a bit of "reference code."
 Reference code is code that's a little generic and probably doesn't solve any
@@ -24,15 +24,19 @@ _real_ problem, but which is kept intentionally ***very simple*** so that you
 can see how it might be adapted to your particular need. Some people call these
 "reference implementations."
 
-## Display the cells in an `Array` of `Array`s
+## Display the Cells in an `Array` of `Array`s
 
 It's not often we say this, but this following bit of code is worth memorizing.
 If you want to learn to speak any human language, it's a good idea to learn the
-grammar, grow your vocabulary and speak with native speakers as much as
-possible.  **But** that takes years, and, in a pinch, you should _really know_
-how to ask for food, water, and a bathroom. Even if you don't understand what's
-happening grammatically, having a few "stock phrases" to lean on is helpful.
-The following code is a good "stock phrase."
+grammar, grow your vocabulary, and speak with native speakers as much as
+possible.
+
+**But**
+
+That takes years, and, in a pinch, you should _really know_ how to ask for
+food, water, emergency services, and a bathroom. Even if you don't understand
+what's happening grammatically, having a few "stock phrases" in times of need
+is helpful.  The following code is a good "stock phrase."
 
 Assuming the following AoA:
 
@@ -97,20 +101,26 @@ spice_rack = [
 ]
 
 
-results = []
+outer_results = []
 row_index = 0
 while row_index < spice_rack.count do
   element_index = 0
+  inner_results = []
   while element_index < spice_rack[row_index].count do
+    # How to read the following line of code:
+    #   Array at row_index
+    #   Element of the inner array at element_index
+    #   The first character of that element...
     if spice_rack[row_index][element_index][0] == "P"
-      results << spice_rack[row_index][element_index]
+      inner_results << spice_rack[row_index][element_index]
     end
     element_index += 1
   end
+  outer_results << inner_results
   row_index += 1
 end
 
-results #=> => ["Posh", "Paprika", "Parsley"]
+outer_results #=> [["Posh"], ["Paprika"], ["Parsley"]]
 ```
 
 We might call this _filtering_. When you learn Ruby's `Enumerable` methods in
@@ -120,8 +130,9 @@ just a little while, remembering this name will help a lot!
 
 Another variant on traversing nested `Array`s is traversing the matrix and
 accumulating all the values. Let's imagine that someone created a grid
-representing a guessing game. Let's sum up all the possible values to determine
-how much money is in the grid.
+representing a guessing game. In each cell of the grid the games makers have
+put some amount of cash. Let's sum up all the possible values to determine how
+much money is in the grid.
 
 ```ruby
 guessing_game_grid = [
@@ -149,12 +160,12 @@ remembering this name will help a lot!
 
 ## Conclusion
 
-Congratulations. You've learned three important data processing tasks with
+Congratulations! You've learned three important data processing tasks with
 matrices and Ruby:
 
-* Print every element in the grid
-* Gather some of the elements that match a given criterion to a new `Array`
-* Gather all the elements to create a single value
+1. Print every element in the grid
+1. Gather some of the elements that match a given criterion into a new `Array`
+1. Gather all the elements to create a single value
 
 In the lab, we're going to ask you to adapt these "reference implementations"
 to do some drills. It's awesome to know that you don't need anything more
